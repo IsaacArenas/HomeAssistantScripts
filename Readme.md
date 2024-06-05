@@ -1,1 +1,1 @@
- # HomeAssistant Scripts}
+ # HomeAssistant Scripts
