@@ -1,0 +1,42 @@
+alias: Halloween mode
+sequence:
+  - service: script.night_mode
+    data: {}
+  - service: tts.google_translate_say
+    data:
+      cache: true
+      entity_id: media_player.nesthubb3d7
+      message: you are gonna die… muahahahahahahahahah
+  - device_id: 09b25aab4ea9e7efa297af51e12e50ae
+    domain: cover
+    entity_id: cover.blinds
+    type: open
+  - service: light.turn_on
+    data:
+      rgb_color:
+        - 181
+        - 26
+        - 0
+      brightness_pct: 39
+    target:
+      device_id: 2eeabc60c6f35f4e23c24690565414b4
+  - service: light.turn_on
+    data:
+      rgb_color:
+        - 181
+        - 26
+        - 0
+      brightness_pct: 50
+    target:
+      device_id: b54ed3f4501402ff5cf54d59e196bf8c
+  - service: light.turn_on
+    data:
+      rgb_color:
+        - 181
+        - 26
+        - 0
+      brightness_pct: 20
+    target:
+      entity_id: light.diningroom
+mode: single
+icon: mdi:halloween

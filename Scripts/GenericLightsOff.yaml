@@ -1,0 +1,11 @@
+alias: Generic_lights_off
+sequence:
+  - service: light.turn_off
+    data:
+      entity_id: "{{ light_entities }}"
+fields:
+  light_entities:
+    name: lights
+    description: a list of light entities to use
+mode: single
+icon: mdi:lightbulb

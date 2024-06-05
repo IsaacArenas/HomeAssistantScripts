@@ -1,0 +1,46 @@
+alias: Kitchen Light
+description: ""
+trigger:
+  - device_id: 759427ca5e7b6fcdd696275502de8402
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: button_1
+    id: switch.single
+  - device_id: 759427ca5e7b6fcdd696275502de8402
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: button_1
+    id: switch.double
+condition: []
+action:
+  - if:
+      - condition: device
+        type: is_off
+        device_id: 2b59955d4d3d4017810bb378b0398e6f
+        entity_id: light.kitchen
+        domain: light
+    then:
+      - service: script.generic_lights
+        data:
+          light_entities:
+            - light.kitchen
+            - light.laundry
+    else:
+      - if:
+          - condition: trigger
+            id: switch.double
+        then:
+          - service: script.generic_lights_off
+            data:
+              light_entities:
+                - light.kitchen
+                - light.laundry
+        else:
+          - service: script.1706147679000
+            data:
+              light_entities:
+                - light.kitchen
+                - light.laundry
+mode: single

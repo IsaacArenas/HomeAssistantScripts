@@ -1,0 +1,59 @@
+alias: Night Mode
+sequence:
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.diningroom
+    domain: light
+    flash: long
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.livingroom_lights
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.kitchen
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.stairs
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.bedroom
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.hall
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.studio
+    domain: light
+  - type: turn_off
+    device_id: 1c2d5b3ebb3611fabe241ce3523b6ae9
+    entity_id: light.h6046_1b1c
+    domain: light
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.sunroom
+    domain: light
+  - type: turn_off
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.laundry
+    domain: light
+  - type: turn_off
+    device_id: 49bf527408ea0e8a33787d3a7d7a617e
+    entity_id: light.rgbicww_floor_lamp
+    domain: light
+mode: single
+icon: mdi:sleep

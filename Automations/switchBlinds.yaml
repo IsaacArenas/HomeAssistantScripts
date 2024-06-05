@@ -1,0 +1,14 @@
+alias: Switch.blinds
+description: ""
+trigger:
+  - device_id: 267bb1ad388ba3ff5b5d8b5ffd933c4f
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: button_1
+condition: []
+action:
+  - service: script.turn_on
+    data:
+      entity_id: script.blinds
+mode: single

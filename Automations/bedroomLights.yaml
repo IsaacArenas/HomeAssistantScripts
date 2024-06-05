@@ -1,0 +1,39 @@
+alias: Bedroom Lights
+description: ""
+trigger:
+  - device_id: 0facb3b1a1c357f5ba34c259cda03f6d
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: button_1
+    id: switch.single
+  - device_id: 0facb3b1a1c357f5ba34c259cda03f6d
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: button_1
+    id: switch.double
+condition: []
+action:
+  - if:
+      - condition: device
+        type: is_off
+        device_id: 595ad3a9a2e8e4ce5423521ac83b6303
+        entity_id: light.signify_netherlands_b_v_lwb014_light_3
+        domain: light
+    then:
+      - service: script.generic_lights
+        data:
+          light_entities:
+            - light.bedroom
+    else:
+      - if:
+          - condition: trigger
+            id: switch.double
+        then:
+          - service: script.generic_lights_off
+            data:
+              light_entities:
+                - light.bedroom
+        else: []
+mode: single

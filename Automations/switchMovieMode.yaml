@@ -1,0 +1,29 @@
+alias: switch.moviemode
+description: ""
+trigger:
+  - device_id: 267bb1ad388ba3ff5b5d8b5ffd933c4f
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: button_3
+    id: button.click
+  - device_id: 267bb1ad388ba3ff5b5d8b5ffd933c4f
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: button_3
+    id: button.double
+condition: []
+action:
+  - if:
+      - condition: trigger
+        id: button.click
+    then:
+      - service: script.turn_on
+        data:
+          entity_id: script.movie_mode
+    else:
+      - service: script.turn_on
+        data:
+          entity_id: script.1696813472488
+mode: single

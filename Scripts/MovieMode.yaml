@@ -1,0 +1,76 @@
+alias: Movie Mode
+sequence:
+  - service: tts.google_translate_say
+    data:
+      cache: true
+      entity_id: media_player.nesthubb3d7
+      message: activating movie mode
+  - device_id: 09b25aab4ea9e7efa297af51e12e50ae
+    domain: cover
+    entity_id: cover.blinds
+    type: open
+  - device_id: 588bc0c726c03adc794e06a8949e81b3
+    type: turn_off
+    entity_id: light.livingroom_lights
+    domain: light
+  - if:
+      - condition: sun
+        after: sunset
+        before: sunrise
+    then:
+      - service: light.turn_on
+        data:
+          color_temp: 384
+          brightness_pct: 5
+        target:
+          entity_id: light.diningroom
+      - type: turn_on
+        device_id: 7aee408c6847f5adf9e662680d55084e
+        entity_id: light.hall
+        domain: light
+        brightness_pct: 5
+        enabled: true
+      - type: turn_on
+        device_id: 7aee408c6847f5adf9e662680d55084e
+        entity_id: light.kitchen
+        domain: light
+        brightness_pct: 5
+        enabled: true
+      - type: turn_on
+        device_id: 7aee408c6847f5adf9e662680d55084e
+        entity_id: light.studio
+        domain: light
+        brightness_pct: 5
+        enabled: true
+      - service: light.turn_on
+        data:
+          color_temp: 384
+          brightness_pct: 5
+        target:
+          device_id: 2eeabc60c6f35f4e23c24690565414b4
+      - type: turn_on
+        device_id: 595ad3a9a2e8e4ce5423521ac83b6303
+        entity_id: light.bedroom
+        domain: light
+        brightness_pct: 5
+        flash: long
+      - service: light.turn_on
+        data:
+          rgb_color:
+            - 1
+            - 47
+            - 123
+          brightness_pct: 50
+        target:
+          device_id: b54ed3f4501402ff5cf54d59e196bf8c
+      - type: turn_off
+        device_id: 7aee408c6847f5adf9e662680d55084e
+        entity_id: light.sunroom
+        domain: light
+      - type: turn_off
+        device_id: 7aee408c6847f5adf9e662680d55084e
+        entity_id: light.laundry
+        domain: light
+    else: []
+mode: single
+icon: mdi:movie-check-outline

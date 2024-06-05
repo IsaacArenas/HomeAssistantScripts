@@ -1,0 +1,74 @@
+alias: evening mode
+sequence:
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.diningroom
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.livingroom_lights
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.kitchen
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.stairs
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.bedroom
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.hall
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.studio
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - service: light.turn_on
+    data:
+      color_temp: 470
+      brightness_pct: 10
+    target:
+      device_id: 2eeabc60c6f35f4e23c24690565414b4
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.sunroom
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_on
+    device_id: 7aee408c6847f5adf9e662680d55084e
+    entity_id: light.laundry
+    domain: light
+    brightness_pct: 50
+    flash: long
+  - type: turn_off
+    device_id: 1c2d5b3ebb3611fabe241ce3523b6ae9
+    entity_id: light.h6046_1b1c
+    domain: light
+  - service: light.turn_on
+    data:
+      color_temp: 389
+      brightness_pct: 40
+    target:
+      entity_id: light.diningroom
+mode: single
+icon: mdi:moon-waning-crescent

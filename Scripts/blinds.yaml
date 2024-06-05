@@ -1,0 +1,20 @@
+alias: blinds
+sequence:
+  - if:
+      - condition: device
+        device_id: 608e5b5ca49f432d4e1ab69a8edeb4b6
+        domain: cover
+        entity_id: cover.blinds
+        type: is_open
+    then:
+      - device_id: 608e5b5ca49f432d4e1ab69a8edeb4b6
+        domain: cover
+        entity_id: cover.blinds
+        type: close
+    else:
+      - device_id: 608e5b5ca49f432d4e1ab69a8edeb4b6
+        domain: cover
+        entity_id: cover.blinds
+        type: open
+mode: single
+icon: mdi:window-open

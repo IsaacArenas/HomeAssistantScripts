@@ -1,0 +1,51 @@
+alias: lights living
+description: ""
+trigger:
+  - device_id: 267bb1ad388ba3ff5b5d8b5ffd933c4f
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: button_4
+    id: switch.single
+  - device_id: 267bb1ad388ba3ff5b5d8b5ffd933c4f
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: button_4
+    id: switch.double
+condition: []
+action:
+  - if:
+      - condition: device
+        type: is_off
+        device_id: 2b59955d4d3d4017810bb378b0398e6f
+        entity_id: light.livingroom_lights
+        domain: light
+    then:
+      - service: script.generic_lights
+        data:
+          light_entities:
+            - light.diningroom
+            - light.livingroom_lights
+            - light.rgbicww_floor_lamp
+    else:
+      - if:
+          - condition: trigger
+            id: switch.double
+        then:
+          - service: script.generic_lights_off
+            data:
+              light_entities:
+                - light.diningroom
+                - light.livingroom_lights
+                - light.h6046_1b1c
+                - light.rgbicww_floor_lamp
+        else:
+          - service: script.1706147679000
+            data:
+              light_entities:
+                - light.diningroom
+                - light.livingroom_lights
+                - light.h6046_1b1c
+                - light.rgbicww_floor_lamp
+mode: single

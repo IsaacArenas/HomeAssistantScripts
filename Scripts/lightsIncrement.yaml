@@ -1,0 +1,12 @@
+alias: Lights Increment
+sequence:
+  - variables:
+      light_entities:
+        - light.diningroom
+        - light.livingroom_lights
+  - service: light.turn_on
+    data:
+      entity_id: "{{ light_entities }}"
+      brightness: "{{light_entities.each.attributes.brightness + 10}}"
+mode: single
+icon: mdi:lightbulb
